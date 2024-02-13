@@ -24,7 +24,7 @@ public class DBUtil {
      */
 
     final static String DRIVER = "jdbc:mysql";
-    final static String URL = "http://192.168.59.104:3006";
+    final static String URL = "//192.168.59.104:3006";
     final static String DB = "kingsforge";
     final static String USER = "root";
     final static String PASSWORD = "root";
@@ -37,7 +37,7 @@ public class DBUtil {
         if(datasource == null){
             DriverManagerDataSource dataSource = new DriverManagerDataSource();
             dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
-            dataSource.setUrl("jdbc:mysql://localhost:3306/kingsforge");
+            dataSource.setUrl("jdbc:mysql://192.168.59.104:3006");
             dataSource.setUsername("root");
             dataSource.setPassword("root");
             datasource = dataSource;
