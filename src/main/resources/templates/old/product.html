@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>
+        <b>ID: </b>
+        <i th:text="|${product.product_id}|"></i>
+    </p>
+    <p>
+        <b>Nombre: </b>
+        <i th:text="|${product.name}|"></i>
+    </p>
+    <p>
+        <b>Descripción: </b>
+        <i th:text="|${product.description}|"></i>
+    </p>
+    <p>
+        <b>Stock: </b>
+        <i th:text="|${product.stock}|"></i>
+    </p>
+    <p>
+        <b>Precio </b>
+        <i th:text="|${product.getRoundedPrice}|"></i> €
+    </p>
+    <p>
+        <b>Supplier: </b>
+        <a th:href="@{${'../suppliers/' + product.supplier_id}}"><i th:text="|${supplier.name}|"></i></a>
+    </p>
+
+    <form th:method="post" id="form">
+        <ul>
+            <label for="quantity">Cantidad: </label>
+            <select id="quantity" name="quantity">
+                <option value=1>1</option>
+                <option value=2>2</option>
+                <option value=3>3</option>
+                <option value=4>4</option>
+                <option value=5>5</option>
+            </select>
+            <button type="submit" id="submit">Comprar</button>
+        </ul>
+    </form>
+    <form>
+        <input type="button" value="Go back!" onclick="history.back()">
+    </form>
+</body>
+
+</html>

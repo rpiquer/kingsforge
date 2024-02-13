@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>
+        <b>Nombre: </b>
+        <i th:text="|${supplier.name}|"></i>
+    </p>
+    <p>
+        <b>Descripción: </b>
+        <i th:text="|${supplier.description}|"></i>
+    </p>
+    <p>
+        <b>Dirección: </b>
+        <i th:text="|${supplier.street} ${supplier.number} ${supplier.postalCode} ${supplier.city} ${supplier.country}|"></i>
+    </p>
+    <p>
+        <b>Web: </b>
+        <a th:href="|${supplier.homepage}|"><i th:text="|${supplier.homepage}|"></i></a>
+    </p>
+    <p>
+        <b>Teléfono: </b>
+        <i th:text="|${supplier.contactPhone}|"></i>
+    </p>
+    <form>
+        <input type="button" value="Go back!" onclick="history.back()">
+    </form>
+</body>
+
+</html>

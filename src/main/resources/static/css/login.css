@@ -1,0 +1,63 @@
+:root{
+    --secundary-color: rgba(187, 192, 197, 0.7);
+}
+
+section{
+ background-image: url("../img/img2.png");
+ background-repeat: no-repeat;
+ background-size: cover;
+ 
+}
+
+input {
+    width: 250px;
+    height: 20px;
+    border-radius: 5px;
+}
+
+.bloques-contacto{
+ height: 700px;
+ display: flex;
+ flex-wrap: wrap;
+ align-content: center;
+ justify-content: center;
+ margin: 0;
+ padding: 0;
+}
+
+.bloque-form {
+    border-radius: 15px;
+    background-color: var(--secundary-color);
+    padding: 20px;
+}
+
+#boton {
+    display: flex;
+    justify-content: center;
+}
+
+.boton {
+    margin-top: 10px;
+    width: 100px;
+    padding: 5px 10px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#btn-reset{
+    margin-right: 10px;
+}
+
+#btn-registrarse:hover {
+    font-weight: bold;
+}
+
+#btn-reset:hover {
+    font-weight: bold;
+}
+
+#login-message{
+    text-align: center;
+}

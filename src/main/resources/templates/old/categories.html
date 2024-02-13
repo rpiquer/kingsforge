@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Categories</title>
+</head>
+<body>
+    <div>
+        <a th:href="@{${'./suppliers'}}">Suppliers</a>
+        <a href="./product/searching">Buscar</a>
+        <a href="./product/moreSending">Más vendidos</a>
+        <ul th:each="mcat : ${mainCat}" >
+            <a th:href="@{${'./categories/' + mcat.category_id}}"><li th:text="|${mcat.name}|"></li></a>     
+        </ul>
+
+        Login
+        <a href="./user/login">Pincha aquí.</a>
+        </p>
+        <p>
+        Registro
+        <a href="./user/register">Pincha aquí.</a>
+        Carrito
+        <a href="./cart">Pincha aquí.</a>
+        </p>
+    </div>
+    <form>
+        <input type="button" value="Go back!" onclick="history.back()">
+    </form>
+</body>
+</html>

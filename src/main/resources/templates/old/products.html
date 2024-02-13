@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul th:each="product : ${prodList}" >
+        <a th:href="@{${'/'+language + '/product/' + product.product_id}}"><li th:text="|${product.name}|"></li></a>
+        <form th:action="@{${'/'+language + '/product/' + product.product_id}}" th:method="post" id="form">
+            <ul>
+                <input type="hidden" id="quantity" name="quantity" value=1>
+                <button type="submit" id="submit">Añadir al carrito</button>
+            </ul>
+        </form>
+    </ul>
+    <form>
+        <input type="button" value="Go back!" onclick="history.back()">
+    </form>
+</body>
+</html>

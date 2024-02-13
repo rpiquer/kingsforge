@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart</title>
+</head>
+<body>
+    <ul th:each="product_line : ${product_lines}" >
+        <li th:text="|${product_line.product.name}|"></li></a>     
+        <li th:text="|${product_line.quantity}|"></li></a>     
+        <li th:text="|${product_line.price}|"></li></a>
+        <form th:action="@{${'./' + product_line.product.product_id}}" th:method="delete" id="form">
+            <ul>
+                <button type="submit" id="submit">Borrar</button>
+            </ul>
+        </form>
+    </ul>
+
+    <li th:text="|${totalPrice}|"></li></a>
+
+    <form method="post" id="form">
+        <ul>
+            <button type="submit" id="submit">Comprar</button>
+        </ul>
+    </form>
+
+    <form th:action="@{${'./all'}}" th:method="delete" id="form">
+        <ul>
+            <button type="submit" id="submit">Vaciar carrito</button>
+        </ul>
+    </form>
+
+    <form>
+        <input type="button" value="Go back!" onclick="history.back()">
+    </form>
+</body>
+</html>

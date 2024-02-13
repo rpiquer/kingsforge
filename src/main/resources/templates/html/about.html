@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/suppliers.css}">
+    <link href='https://fonts.googleapis.com/css?family=Imbue' rel='stylesheet'>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/common.css}" />
+    <title>Sobre nosotros</title>
+</head>
+
+<body>
+    <header>
+        <figure id="banner">
+            <a th:href="@{${'/'+language + '/'}}"><img th:src="@{/img/cabecera.jpg}" alt="Banner" id="banner-img"></a>
+            <a th:href="@{${'/'+language + '/'}}"><img th:src="@{/img/logo.png}" alt="Logo" id="flag-img"></a>
+            <div id="language-flags">
+                <div class="dropdown">
+                    <a th:href="@{${'/'+language+'/'}}"><img th:if="${language == 'es'}" th:src="@{/img/spanish.png}"
+                            width="50"><img th:if="${language == 'en'}" th:src="@{/img/english.png}" width="50"></a>
+                    <div class="dd-content">
+                        <a th:href="@{${'/es/'}}"><img th:src="@{/img/spanish.png}" width="50"></a>
+                        <a th:href="@{${'/en/'}}"><img th:src="@{/img/english.png}" width="50"></a>
+                    </div>
+                </div>
+            </div>
+
+            <a th:href="@{${'/'+language + '/user/login'}}"><img th:src="@{/img/user.png}" alt="User icon"
+                    id="user-icon"></a>
+            <a th:href="@{${'/'+language + '/cart'}}"><img th:src="@{/img/cart.png}" alt="Cart icon" id="cart-icon"></a>
+        </figure>
+    </header>
+    <nav id='nav_bar'>
+        <div id='nav-links'>
+            <div th:each="cat : ${categories}" th:if="${cat.father_id == 0}" class="dropdown">
+                <a th:href="@{${'/'+language + '/category/' + cat.category_id}}" th:text="|${cat.name}|"></a>
+                <div class="dd-content">
+                    <a th:each="sub : ${categories}" th:if="${sub.father_id == cat.category_id}"
+                        th:href="@{${'/'+language + '/category/' + sub.category_id}}" th:text="|${sub.name}|"></a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a th:if="${language == 'es'}" th:href="@{${'/'+language + '/about-us'}}" id="about-us-link">SOBRE NOSOTROS</a>
+                <div th:if="${language == 'es'}" class="dd-content">
+                    <a th:href="@{${'/'+language + '/about-us'}}">¿QUIÉNES SOMOS?</a>
+                    <a th:href="@{${'/'+language + '/suppliers'}}">PROVEEDORES</a>
+                </div>
+                <a th:if="${language == 'en'}" th:href="@{${'/'+language + '/about-us'}}" id="about-us-link">ABOUT US</a>
+                <div th:if="${language == 'en'}"class="dd-content">
+                    <a th:href="@{${'/'+language + '/about-us'}}">WHO ARE WE?</a>
+                    <a th:href="@{${'/'+language + '/suppliers'}}">SUPPLIERS</a>
+                </div>
+            </div>
+        </div>
+        <div id="searchbox">
+            <form id="search" th:action="@{${'/' + language + '/product/result'}}">
+                <input th:if="${language == 'es'}" type="text" id="usr-search" name="name" placeholder="Buscar...">
+                <input th:if="${language == 'en'}" type="text" id="usr-search" name="name" placeholder="Search...">
+            </form>
+        </div>
+    </nav>
+    <main>
+        <section>
+            <h1 id="supplier-name">King's Forge</h1>
+            <div id="supplier-container">
+                <div id="image-container"><img id="supplier-image" th:src="@{${'/img/logo.png'}}" alt=""></div>
+                <div id="supplier-info">
+                    <div id="supplier-description">
+                        <p th:if="${language == 'es'}" id="description-text">Somos un grupo de desarrolladores en
+                            desarrollo. Nos conocimos todos
+                            cursando Desarrollo de Aplicaciones Web y, a raíz de un proyecto de clase, decidimos montar
+                            esta empresa para cumplir las fantasías de los jugadores de rol. Obtenemos nuestros
+                            productos de los mejores proveedores, algunos de los cuales conocemos de primera mano debido
+                            a nuestra experiencia en el Rol en Vivo. Nuestros productos son sólo los de mejor calidad, y
+                            esperamos que así siga siendo durante mucho tiempo. Esperamos crecer lo suficiente, ¿y quién
+                            sabe? En un futuro puede que incluso seamos nuestros propios proveedores. <br><br>
+
+                            Creemos que el rol es un lugar para que todo el mundo disfrute y lo pase bien en un espacio
+                            sano, seguro y divertido, donde se pueda conocer gente, vivir aventuras inimaginables e
+                            incluso compartir una jarra de grog en la taberna. Cualquier cosa es posible, así que si
+                            quieres seguir este camino, cuenta con nosotros. <br><br>
+
+                            King's Forge. Forja tu fantasía.</p>
+                        <p th:if="${language == 'en'}" id="description-text">We are a group of in-develop developers. We
+                            met when we were studying a course in Web Application Development and, due to a class
+                            project, we decided to set up our own business to make the role-players' fantasies come
+                            true. We get our products from the best suppliers, some of which we know first-hand due to
+                            out experience in LARP. Our products are only the best, and we hope this stays the same for
+                            a long time. We hope to grow enough, and who knows? Maybe in the future we can be our own
+                            suppliers. <br><br>
+
+                            We believe roleplay is a place for everyone to enjoy and have fun in a safe, healthy and fun
+                            space, where one can meet people, live unimaginable adventures and share a mug of grog in
+                            the inn. Everyting is posible, so if you wanna keep walking this road, count us in. <br><br>
+
+                            King's Forge. Forge your fantasies.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer th:if="${language == 'es'}">
+            <div id="footer-info">
+                <div class="footer-section">
+                    <h3>SOBRE NOSOTROS</h3>
+                    <ul>
+                        <li><a class="footer-links" th:href="@{${'/'+language + '/about-us'}}">Sobre nosotros</a></li>
+                        <li><a class="footer-links" th:href="@{${'/'+language + '/suppliers'}}">Nuestras marcas</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>INFORMACIÓN LEGAL</h3>
+                    <ul>
+                        <li>Aviso legal</li>
+                        <li>Política de envíos y devoluciones</li>
+                        <li>Política de privacidad</li>
+                        <li>Política de cookies</li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>INFORMACIÓN</h3>
+                    <ul>
+                        <li>Contacta con nosotros</li>
+                        <li>De Lunes a viernes de 10:00 a 14:00 y de 16:00 a 20:00</li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>CONTACTO</h3>
+                    <ul>
+                        <li>Email: info@kingsforge.com</li>
+                        <li>24 horas online</li>
+                    </ul>
+                </div>
+            </div>
+            <div id="socials-container">
+                <a href="http://facebook.com"><img th:src="@{/img/facebook.png}" alt="Facebook Icon"></a>
+                <a href="http://youtube.com"><img th:src="@{/img/youtube.png}" alt="Youtube Icon"></a>
+                <a href="http://twitter.com"><img th:src="@{/img/twitter.png}" alt="Twitter Icon"></a>
+                <a href="http://instagram.com"><img th:src="@{/img/instagram.png}" alt="Instagram Icon"></a>
+            </div>
+        </footer>
+        <footer th:if="${language == 'en'}">
+            <div id="footer-info">
+                <div class="footer-section">
+                    <h3>ABOUT US</h3>
+                    <ul>
+                        <li><a class="footer-links" th:href="@{${'/'+language + '/about-us'}}">About Us</a></li>
+                        <li><a class="footer-links" th:href="@{${'/'+language + '/suppliers'}}">Our brands</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>LEGAL INFORMATION</h3>
+                    <ul>
+                        <li>Legal Warning</li>
+                        <li>Returnals and shipping</li>
+                        <li>Terms and Conditions</li>
+                        <li>Cookies</li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>INFORMATION</h3>
+                    <ul>
+                        <li>Contact us</li>
+                        <li>Monday to Friday from 10:00 to 14:00 and from 16:00 to 20:00</li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>CONTACT</h3>
+                    <ul>
+                        <li>Email: info@kingsforge.com</li>
+                        <li>24 hours online</li>
+                    </ul>
+                </div>
+            </div>
+            <div id="socials-container">
+                <a href="http://facebook.com"><img th:src="@{/img/facebook.png}" alt="Facebook Icon"></a>
+                <a href="http://youtube.com"><img th:src="@{/img/youtube.png}" alt="Youtube Icon"></a>
+                <a href="http://twitter.com"><img th:src="@{/img/twitter.png}" alt="Twitter Icon"></a>
+                <a href="http://instagram.com"><img th:src="@{/img/instagram.png}" alt="Instagram Icon"></a>
+            </div>
+        </footer>
+    </main>
+</body>
+
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suppliers</title>
+</head>
+<body>
+    <div>
+        <ul th:each="supplier : ${suppliers}" >
+            <a th:href="@{${'./suppliers/' + supplier.supplier_id}}"><li th:text="|${supplier.name}|"></li></a>     
+        </ul>
+    </div>
+    <form>
+        <input type="button" value="Go back!" onclick="history.back()">
+    </form>
+</body>
+</html>
