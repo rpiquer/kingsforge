@@ -24,7 +24,7 @@ public class DBUtil {
      */
 
     final static String DRIVER = "jdbc:mysql";
-    final static String URL = "localhost:3306";
+    final static String URL = "http://192.168.59.104:3006";
     final static String DB = "kingsforge";
     final static String USER = "root";
     final static String PASSWORD = "root";
